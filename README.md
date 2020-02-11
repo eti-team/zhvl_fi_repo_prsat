@@ -1,2 +1,2 @@
 # zhvl_fi_repo_prsat
-Personel Satıcı Reposito
+Personel Satıcı Repository
