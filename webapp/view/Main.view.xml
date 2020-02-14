@@ -1,31 +1,49 @@
-<mvc:View displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
-	xmlns:f="sap.ui.layout.form" controllerName="com.hvl.hr.PersonelBilgileri.controller.Main">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	displayBlock="true" controllerName="com.hvl.hr.PersonelBilgileri.controller.Main">
 	<App id="idAppControl">
 		<pages>
 			<Page title="{i18n>title}">
 				<content>
-					<f:SimpleForm id="simpleFormChange" title="Personel Bilgileri" editable="true" class="editableForm sapUiSmallMarginTopBottom">
-						<f:content>
-							<!---->
-							<Label text="{i18n>layoutFormPernr}" labelFor="pernrInput"/>
-							<Input id="pernrInput" type="Text" placeholder="..."/>
-							<!---->
-							<Label text="{i18n>layoutFormVorna}" labelFor="vornaInput"/>
-							<Input id="vornaInput" type="Text" placeholder="..."/>
-							<!---->
-							<Label text="{i18n>layoutFormNachn}" labelFor="nachnInput"/>
-							<Input id="nachnInput" type="Text" placeholder="..."/>
-							<!---->
-						</f:content>
-					</f:SimpleForm>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="simpleFormChange" title="Personel Bilgileri" editable="true" class="editableForm" layout="ResponsiveGridLayout"
+							labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0"
+							emptySpanS="6" columnsXL="2" columnsL="1" columnsM="0">
+							<f:content>
+								<!---->
+								<Label text="{i18n>layoutFormPernr}" labelFor="pernrInput"/>
+								<Input id="pernrInput" type="Text" placeholder="...">
+									<layoutData>
+										<l:GridData span="XL1 L2 M2 S4"/>
+									</layoutData>
+								</Input>
+								<!---->
+								<Label text="{i18n>layoutFormVorna}" labelFor="vornaInput"/>
+								<Input id="vornaInput" type="Text" placeholder="...">
+									<layoutData>
+										<l:GridData span="XL1 L2 M2 S4"/>
+									</layoutData>
+								</Input>
+								<!---->
+								<Label text="{i18n>layoutFormNachn}" labelFor="nachnInput"/>
+								<Input id="nachnInput" type="Text" placeholder="...">
+									<layoutData>
+										<l:GridData span="XL1 L2 M2 S4"/>
+									</layoutData>
+								</Input>
+								<!---->
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Button text="{i18n>layoutListButton}" icon="sap-icon://employee-lookup" type="Accept"/>
-						<!--<Button text="{i18n>layoutDraftButton}" icon="sap-icon://save"/>-->
+						<Button text="{i18n>layoutListButton}" icon="sap-icon://employee-lookup" type="Accept" press="onListPerson"/>
 					</Toolbar>
-					<List id="idList" items="{/ProductCollection}" selectionChange=".onSelectionChange" mode="MultiSelect" growing="true" growingThreshold="50"
-						includeItemInSelection="true">
-						<StandardListItem title="{i18n>layoutFormPernr}" description="{ProductId}" icon="{ProductPicUrl}" iconDensityAware="false" iconInset="false"/>
+					<List headerText="{i18n>listTitle}" items="{/PersonelBilgiSet}" id="listPersonel" growing="true" growingThreshold="9"
+						growingScrollToLoad="true">
+						<!--growingTriggerText="{i18n>listMore}-->
+						<items>
+							<ObjectListItem title="{Unvtx}" number="{Pernr}" intro="{Vorna} {Nachn}"/>
+						</items>
 					</List>
 				</content>
 			</Page>
