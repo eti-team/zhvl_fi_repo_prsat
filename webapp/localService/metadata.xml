@@ -1,0 +1,22 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZHVL_HR_PERSONEL_BILGI_SRV" xml:lang="tr" sap:schema-version="1">
+			<EntityType Name="PersonelBilgi" sap:content-version="1">
+				<Key><PropertyRef Name="Pernr"/></Key><Property Name="Pernr" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Personel no." sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Vorna" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Adı" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Nachn" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Soyadı" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Persg" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Çalışan gr." sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Persk" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Çlşn.alt gr." sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Unvan" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Unvan" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Gbdat" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Doğum tarihi" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="ZHVL_HR_PERSONEL_BILGI_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="PersonelBilgiSet" EntityType="ZHVL_HR_PERSONEL_BILGI_SRV.PersonelBilgi" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+				<FunctionImport Name="GetPersonelInfo" ReturnType="Collection(ZHVL_HR_PERSONEL_BILGI_SRV.PersonelBilgi)" EntitySet="PersonelBilgiSet"
+					m:HttpMethod="GET" sap:action-for="ZHVL_HR_PERSONEL_BILGI_SRV.PersonelBilgi"><Parameter Name="Vorna" Type="Edm.String" Mode="In"/><Parameter Name="Pernr" Type="Edm.String" Mode="In" MaxLength="8"/><Parameter Name="Nachn" Type="Edm.String" Mode="In"/></FunctionImport>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="http://etimaden:8000/sap/opu/odata/sap/ZHVL_HR_PERSONEL_BILGI_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="http://etimaden:8000/sap/opu/odata/sap/ZHVL_HR_PERSONEL_BILGI_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
