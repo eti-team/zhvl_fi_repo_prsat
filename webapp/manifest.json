@@ -38,10 +38,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal"
-		]
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -72,7 +69,7 @@
 				"settings": {
 					"defaultOperationMode": "Server",
 					"defaultBindingMode": "OneWay",
-					"defaultCountMode": "Request"
+					"defaultCountMode": "Inline"
 				},
 				"dataSource": "ZHVL_HR_PERSONEL_BILGI_SRV",
 				"preload": true
@@ -96,9 +93,7 @@
 			"routes": [{
 				"name": "RouteMain",
 				"pattern": "RouteMain",
-				"target": [
-					"TargetMain"
-				]
+				"target": ["TargetMain"]
 			}],
 			"targets": {
 				"TargetMain": {
