@@ -1,7 +1,10 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/m/MessageToast"
-], function (Controller, MessageToast) {
+
+	"sap/m/MessageToast",
+	"com/hvl/hr/PersonelBilgileri/util/Formatter"
+], function (Controller, MessageToast, Formatter) {
+
 	"use strict";
 
 	return Controller.extend("com.hvl.hr.PersonelBilgileri.controller.Main", {
@@ -12,6 +15,8 @@ sap.ui.define([
 			var oParamPernr = this.getView().byId("pernrInput");
 			var oParamVorna = this.getView().byId("vornaInput");
 			var oParamNachn = this.getView().byId("nachnInput");
+			var oParamAktifler = this.getView().byId("aktifler");
+
 
 			var filters = [];
 
@@ -28,12 +33,23 @@ sap.ui.define([
 				filters.push(oFilter);
 			}
 
+			if (oParamAktifler.getSelected()) {
+				oFilter = new sap.ui.model.Filter("Sttx2", sap.ui.model.FilterOperator.Contains, "Aktif");
+				filters.push(oFilter);
+			}
+
+
 			var list = this.getView().byId("listPersonel");
 			var binding = list.getBinding("items");
 			binding.filter(filters);
 
 			var myModel = this.getOwnerComponent().getModel();
 			myModel.setSizeLimit(10);
+
+		},
+		onListItemPress: function (oEvent) {
+			MessageToast.show("Seçildi : " + oEvent.getSource().getTitle());
+
 		}
 	});
 });
