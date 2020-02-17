@@ -5,21 +5,27 @@
 			<Page title="{i18n>title}">
 				<content>
 					<VBox class="sapUiSmallMargin">
+
 						<!--alignContent="Center" justifyContent="Center">-->
 						<f:SimpleForm id="simpleFormChange" title="Personel Bilgileri" editable="true" class="editableForm" layout="ResponsiveGridLayout"
 							labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="0" emptySpanL="4" emptySpanM="0"
+
 							emptySpanS="6" columnsXL="2" columnsL="1" columnsM="0">
 							<f:content>
 								<!---->
 								<Label text="{i18n>layoutFormPernr}" labelFor="pernrInput"/>
+                
 								<Input id="pernrInput" type="Text" placeholder="">
+
 									<layoutData>
 										<l:GridData span="XL1 L2 M2 S4"/>
 									</layoutData>
 								</Input>
 								<!---->
 								<Label text="{i18n>layoutFormVorna}" labelFor="vornaInput"/>
+                
 								<Input id="vornaInput" type="Text" placeholder="">
+
 									<layoutData>
 										<l:GridData span="XL1 L2 M2 S4"/>
 									</layoutData>
@@ -27,11 +33,13 @@
 								<!---->
 								<Label text="{i18n>layoutFormNachn}" labelFor="nachnInput"/>
 								<Input id="nachnInput" type="Text" placeholder="">
+
 									<layoutData>
 										<l:GridData span="XL1 L2 M2 S4"/>
 									</layoutData>
 								</Input>
 								<!---->
+                
 								<Label/>
 								<Button text="{i18n>layoutListButton}" icon="sap-icon://employee-lookup" type="Accept" press="onListPerson">
 									<layoutData>
@@ -41,13 +49,16 @@
 							</f:content>
 						</f:SimpleForm>
 					</VBox>
+
 					<List headerText="{i18n>listTitle}" items="{/PersonelBilgiSet}" id="listPersonel" growing="true" growingThreshold="9"
 						growingScrollToLoad="true">
 						<!--growingTriggerText="{i18n>listMore}-->
 						<items>
+
 							<ObjectListItem title="{Unvtx}" number="{Pernr}" intro="{Vorna} {Nachn}">
 								<ObjectAttribute text="{Persg}" />
 							</ObjectListItem>
+
 						</items>
 					</List>
 				</content>
